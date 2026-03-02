@@ -121,6 +121,17 @@
         "twitter": "",
         "linkedin": "https://www.linkedin.com/in/adammeddah/"
       }
+    },
+    {
+      "name": "Hayden Choi",
+      "year": 2028,
+      "program": "CS",
+      "website": "https://haydenchoi.com/",
+      "links": {
+        "instagram": "",
+        "twitter": "",
+        "linkedin": "https://www.linkedin.com/in/hayden-choi9/"
+      }
     }
   ]
 }
