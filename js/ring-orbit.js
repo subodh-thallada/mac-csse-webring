@@ -5,9 +5,9 @@
 
 const VIEWBOX = 100;
 const CENTER = 50;
-const MARGIN = 24;
-const BASE_R = 12;
-const RING_SPACING = 10;
+const MARGIN = 12;
+const MIN_RING_R = 14;
+const RING_SPACING = 8;
 const GAP_DEG = 48;
 const NODE_R = 3.6;
 const NODE_COLOR = "#7A003C";
@@ -36,8 +36,11 @@ function groupByYear(sites) {
   return byYear;
 }
 
-function radiusForIndex(i) {
-  return BASE_R + i * RING_SPACING;
+function radiusForIndex(i, totalYears) {
+  const maxR = CENTER - MARGIN;
+  if (totalYears <= 1) return maxR * 0.6;
+  const spacing = (maxR - MIN_RING_R) / (totalYears - 1);
+  return MIN_RING_R + i * spacing;
 }
 
 function nodePosition(nodeIndex, total, radius) {
@@ -91,10 +94,6 @@ function initOrbit(containerId) {
       return;
     }
 
-    const maxR = CENTER - MARGIN;
-    const maxLogical = radiusForIndex(years.length - 1);
-    const scale = maxR / maxLogical;
-
     if (!svg) {
       container.innerHTML = "";
       svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -112,7 +111,7 @@ function initOrbit(containerId) {
     g.innerHTML = "";
 
     years.forEach((year, i) => {
-      const r = radiusForIndex(i) * scale;
+      const r = radiusForIndex(i, years.length);
       const nodes = byYear.get(year) || [];
       const total = nodes.length;
       const strokeW = i === 0 ? STROKE_CENTER : STROKE_RING;
@@ -143,7 +142,7 @@ function initOrbit(containerId) {
       label.textContent = String(year);
       group.appendChild(label);
 
-      const nodeRadius = Math.max(0.8, NODE_R * scale / (maxLogical / BASE_R));
+      const nodeRadius = Math.max(1.5, NODE_R * (r / (CENTER - MARGIN)));
       const totalNodes = Math.max(1, total);
       nodes.forEach((site, nodeIndex) => {
         const { x, y } = nodePosition(nodeIndex, totalNodes, r);
@@ -207,4 +206,5 @@ function initOrbit(containerId) {
 document.addEventListener("DOMContentLoaded", async () => {
   await (window.webringDataReady ?? Promise.resolve());
   initOrbit("ring-orbit-container");
+  initOrbit("ring-orbit-container-mobile");
 });

@@ -55,22 +55,22 @@ function createWebringList(matchedSiteIndices) {
     if (firstHighlighted === null && isHighlighted) firstHighlighted = tr;
 
     const tdProgram = document.createElement("td");
-    tdProgram.className = "py-3 pr-3";
+    tdProgram.className = "py-3 pr-4";
     const programSpan = document.createElement("span");
     programSpan.className = "badge-program text-[11px] font-semibold px-1.5 py-0.5 rounded";
     programSpan.textContent = program;
     tdProgram.appendChild(programSpan);
 
     const tdYear = document.createElement("td");
-    tdYear.className = "py-3 pr-3";
+    tdYear.className = "py-3 pr-4";
     tdYear.textContent = site.year;
 
     const tdName = document.createElement("td");
-    tdName.className = "py-3 pr-3 font-semibold text-maroon-600";
+    tdName.className = "py-3 pr-4 font-semibold text-maroon-600";
     tdName.textContent = site.name;
 
     const tdWebsite = document.createElement("td");
-    tdWebsite.className = "py-3 pr-3 max-w-[220px] truncate";
+    tdWebsite.className = "py-3 pr-4 max-w-[180px] truncate";
     const link = document.createElement("a");
     link.href = site.website;
     link.target = "_blank";
@@ -80,7 +80,7 @@ function createWebringList(matchedSiteIndices) {
     tdWebsite.appendChild(link);
 
     const tdSocials = document.createElement("td");
-    tdSocials.className = "py-3 pl-2";
+    tdSocials.className = "py-3";
     const icons = document.createElement("div");
     icons.className = "flex items-center gap-0.5";
     const instagramLink = createSocialLink("instagram", site?.links?.instagram, isHighlighted);
