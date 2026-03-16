@@ -143,6 +143,17 @@
         "twitter": "https://x.com/aymanfsm",
         "linkedin": "https://www.linkedin.com/in/aymanfsm/"
       }
-    }
+    },
+    {
+      "name": "Muhammad Hasan",
+      "year": 2026,
+      "program": "ENG",
+      "website": "https://hasan-ston.github.io/",
+      "links": {
+        "instagram": "",
+        "twitter": "",
+        "linkedin": "https://www.linkedin.com/in/muhammad-hasan-139064379/"
+      }
+    },
   ]
 }
