@@ -154,6 +154,17 @@
         "twitter": "",
         "linkedin": "https://www.linkedin.com/in/muhammad-hasan-139064379/"
       }
+    },
+    {
+      "name": "Eddie Zhuang",
+      "year": 2027,
+      "program": "CS",
+      "website": "https://eddiezhuang.com",
+      "links": {
+        "instagram": "",
+        "twitter": "https://x.com/edzhuan",
+        "linkedin": "https://www.linkedin.com/in/eddie-zhuang"
+      }
     }
   ]
 }
